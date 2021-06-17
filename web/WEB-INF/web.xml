@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+
+    <servlet>
+        <servlet-name>HessianServlet</servlet-name>
+        <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+        <init-param>
+            <param-name>service-class</param-name><!-- 服务器对接口的实现 -->
+<!-- 返回string类型 可以省略 api-class【对外接口】 只写 实现类 不然：Server returned HTTP response code: 500 for URL-->
+            <param-value>xinchen.basic.BasicImpl</param-value>
+        </init-param>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HessianServlet</servlet-name>
+        <url-pattern>/hessian</url-pattern>
+    </servlet-mapping>
+
+</web-app>
